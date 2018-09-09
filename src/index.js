@@ -1,7 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { BrowserRouter, withRouter } from 'react-router-dom';
+
+import App from './components/App';
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Main = withRouter(props => ((
+	<App 
+		{...props}
+	/>
+)))
+
+ReactDOM.render(
+	<BrowserRouter>
+		<Main />
+	</BrowserRouter>
+	, document.getElementById('root'));
 registerServiceWorker();
