@@ -1,20 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux'
 import { BrowserRouter, withRouter } from 'react-router-dom';
 
-import App from './components/App';
+import App from './App';
+import store from './store';
+import { routerHistory } from './store'
 
 import registerServiceWorker from './registerServiceWorker';
 
-const Main = withRouter(props => ((
-	<App 
-		{...props}
-	/>
-)))
+const AppWithRouter = withRouter(App);
 
 ReactDOM.render(
-	<BrowserRouter>
-		<Main />
-	</BrowserRouter>
+	<Provider store={store}>
+		<BrowserRouter>
+			<AppWithRouter />
+		</BrowserRouter>
+	</Provider>
 	, document.getElementById('root'));
 registerServiceWorker();

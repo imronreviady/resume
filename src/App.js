@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import LeftMenu from './components/LeftMenu';
-import Home from './components/Home';
+import AppRouter from './components/AppRouter';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
             <LeftMenu />
 
             <div id="fh5co-main">
-              <Home />   
+              <AppRouter />   
             </div>
         </div>
 

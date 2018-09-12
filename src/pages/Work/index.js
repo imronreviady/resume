@@ -1,29 +1,31 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 
-const Work = () => {
-	return (
-		<Fragment>
-			<div className="fh5co-narrow-content">
-				<h2 className="fh5co-heading animate-box fadeInLeft animated">Portfolio</h2>
-					<div className="row animate-box fadeInLeft animated">
-						<div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
-							<a href="work.html">
-								<img src="images/work_1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
-								<h3 className="fh5co-work-title">Work Title Here</h3>
-								<p>Illustration, Branding</p>
-							</a>
-						</div>
-						<div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
-							<a href="work.html">
-								<img src="images/work_2.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
-								<h3 className="fh5co-work-title">Work Title Here</h3>
-								<p>Web, Packaging</p>
-							</a>
-						</div>
-						<div className="clearfix visible-sm-block" />
-					<div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+class Work extends React.Component {
+  render() {
+    return (
+      <Fragment>
+      <div className="fh5co-narrow-content">
+        <h2 className="fh5co-heading animate-box fadeInLeft animated">Portfolio</h2>
+          <div className="row animate-box fadeInLeft animated">
+            <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+              <a href="work.html">
+                <img src={`${process.env.PUBLIC_URL}/assets/images/work_1.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+                <h3 className="fh5co-work-title">Work Title Here</h3>
+                <p>Illustration, Branding</p>
+              </a>
+            </div>
+            <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
+              <a href="work.html">
+                <img src={`${process.env.PUBLIC_URL}/assets/images/work_2.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+                <h3 className="fh5co-work-title">Work Title Here</h3>
+                <p>Web, Packaging</p>
+              </a>
+            </div>
+            <div className="clearfix visible-sm-block" />
+          <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
         <a href="work.html">
-          <img src="images/work_3.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/work_3.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
           <h3 className="fh5co-work-title">Work Title Here</h3>
           <p>Branding, Web</p>
         </a>
@@ -31,7 +33,7 @@ const Work = () => {
       <div className="clearfix visible-md-block" />
       <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
         <a href="work.html">
-          <img src="images/work_4.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/work_4.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
           <h3 className="fh5co-work-title">Work Title Here</h3>
           <p>Logo, Branding, Web</p>
         </a>
@@ -39,14 +41,14 @@ const Work = () => {
       <div className="clearfix visible-sm-block" />
       <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
         <a href="work.html">
-          <img src="images/work_5.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/work_5.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
           <h3 className="fh5co-work-title">Work Title Here</h3>
           <p>Web, Packaging, Branding</p>
         </a>
       </div>
       <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
         <a href="work.html">
-          <img src="images/work_6.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/work_6.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
           <h3 className="fh5co-work-title">Work Title Here</h3>
           <p>Branding</p>
         </a>
@@ -54,14 +56,14 @@ const Work = () => {
       <div className="clearfix visible-md-block visible-sm-block" />
       <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
         <a href="work.html">
-          <img src="images/work_7.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/work_7.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
           <h3 className="fh5co-work-title">Work Title Here</h3>
           <p>Web, Illustration</p>
         </a>
       </div>
       <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
         <a href="work.html">
-          <img src="images/work_8.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/work_8.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
           <h3 className="fh5co-work-title">Work Title Here</h3>
           <p>Branding, Web</p>
         </a>
@@ -69,7 +71,7 @@ const Work = () => {
       <div className="clearfix visible-sm-block" />
       <div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item">
         <a href="work.html">
-          <img src="images/work_1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
+          <img src={`${process.env.PUBLIC_URL}/assets/images/work_1.jpg`} alt="Free HTML5 Website Template by FreeHTML5.co" className="img-responsive" />
           <h3 className="fh5co-work-title">Work Title Here</h3>
           <p>Illustration, Branding</p>
         </a>
@@ -101,8 +103,9 @@ const Work = () => {
     </div>
   </div>
 
-		</Fragment>
-	);
-};
+    </Fragment>
+    );
+  }
+}
 
 export default Work;

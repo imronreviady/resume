@@ -17,6 +17,6 @@ const Home = () => {
 			</div>
 		</Fragment>
 	);
-};
+}
 
 export default Home;
