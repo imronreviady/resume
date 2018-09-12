@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 import { getWorks } from '../../store/actions/worksAction';
 
@@ -14,11 +15,11 @@ class Work extends Component {
 		return _.map(this.props.works, (work, key) => {
 			return (
 				<div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item" key={key}>
-					<a href="work.html">
+					<Link to={`/detail-work/${key}`}>
 						<img src={work.image} alt={work.title} className="img-responsive" />
 						<h3 className="fh5co-work-title">{work.title}</h3>
 						<p>{work.category}</p>
-					</a>
+					</Link>
 				</div>
 			)
 		});
@@ -66,7 +67,7 @@ class Work extends Component {
 
 function mapStateToProps(state, ownProps) {
 	return {
-		works: state.works
+		works: state.works.data
 	}
 }
 

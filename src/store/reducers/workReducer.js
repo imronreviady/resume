@@ -1,18 +1,18 @@
-import { GET_WORKS, GET_WORKS_LOADING, GET_WORKS_LOADED } from '../actionTypes';
+import { GET_WORK, GET_WORK_LOADING, GET_WORK_LOADED } from '../actionTypes';
 
 export default function(state = {}, action) {
 	switch(action.type) {
-		case GET_WORKS:
+		case GET_WORK:
 			return {
 				...state,
 				data: action.payload
 			};
-		case GET_WORKS_LOADING:
+		case GET_WORK_LOADING:
 			return {
 				...state,
 				loading: true
 			};
-		case GET_WORKS_LOADED:
+		case GET_WORK_LOADED:
 			return {
 				...state,
 				loading: false

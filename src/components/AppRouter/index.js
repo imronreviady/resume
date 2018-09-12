@@ -2,8 +2,10 @@ import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
 
 import LeftMenu from '../LeftMenu';
+
 import Home from '../../pages/Home';
 import Work from '../../pages/Work';
+import SingleWork from '../../pages/SingleWork';
 import CreateWork from '../../pages/CreateWork';
 
 class AppRouter extends React.Component {
@@ -30,6 +32,17 @@ class AppRouter extends React.Component {
 							render={
 								props => (
 									<Work 
+										{...props}
+									/>
+								)
+							}
+						/>
+						<Route
+							exact 
+							path="/detail-work/:key" 
+							render={
+								props => (
+									<SingleWork 
 										{...props}
 									/>
 								)
