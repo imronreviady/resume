@@ -4,9 +4,10 @@ import { Route } from 'react-router-dom';
 import LeftMenu from '../LeftMenu';
 
 import Home from '../../pages/Home';
-import Work from '../../pages/Work';
+import Works from '../../pages/Works';
 import SingleWork from '../../pages/SingleWork';
 import CreateWork from '../../pages/CreateWork';
+import CreateCertificate from '../../pages/CreateCertificate';
 
 class AppRouter extends React.Component {
 	constructor() {
@@ -28,10 +29,10 @@ class AppRouter extends React.Component {
 							} 
 						/>
 						<Route
-							path="/work"
+							path="/works"
 							render={
 								props => (
-									<Work 
+									<Works
 										{...props}
 									/>
 								)
@@ -39,7 +40,7 @@ class AppRouter extends React.Component {
 						/>
 						<Route
 							exact 
-							path="/detail-work/:key" 
+							path="/work/:key" 
 							render={
 								props => (
 									<SingleWork 
@@ -53,6 +54,16 @@ class AppRouter extends React.Component {
 							render={
 								props => (
 									<CreateWork 
+										{...props}
+									/>
+								)
+							}
+						/>
+						<Route
+							path="/createcertificate"
+							render={
+								props => (
+									<CreateCertificate 
 										{...props}
 									/>
 								)

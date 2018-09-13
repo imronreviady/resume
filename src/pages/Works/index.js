@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { getWorks } from '../../store/actions/worksAction';
 
-class Work extends Component {
+class Works extends Component {
 
 	componentDidMount() {
 		this.props.getWorks();
@@ -15,7 +15,7 @@ class Work extends Component {
 		return _.map(this.props.works, (work, key) => {
 			return (
 				<div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item" key={key}>
-					<Link to={`/detail-work/${key}`}>
+					<Link to={`/work/${key}`}>
 						<img src={work.image} alt={work.title} className="img-responsive" />
 						<h3 className="fh5co-work-title">{work.title}</h3>
 						<p>{work.category}</p>
@@ -32,7 +32,14 @@ class Work extends Component {
 					<h2 className="fh5co-heading animate-box fadeInLeft animated">Portfolio</h2>
 					<div className="row animate-box fadeInLeft animated">
 							
-						{this.renderWorks()}
+						{
+							!this.props.loading &&
+							<div>{this.renderWorks()}</div>
+						}
+						{
+							this.props.loading &&
+							<div>LOADING.....</div>
+						}
 
 					</div>	
 				</div>
@@ -67,8 +74,9 @@ class Work extends Component {
 
 function mapStateToProps(state, ownProps) {
 	return {
-		works: state.works.data
+		works: state.works.data,
+		loading: state.works.loading
 	}
 }
 
-export default connect(mapStateToProps, { getWorks })(Work);
+export default connect(mapStateToProps, { getWorks })(Works);

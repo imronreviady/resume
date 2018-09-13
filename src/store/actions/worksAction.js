@@ -36,6 +36,10 @@ export function getWork(key) {
 }
 
 export function saveWork(work) {
-	console.log(work);
-	return dispatch => worksDb.push(work);
+	return dispatch => {
+		dispatch({
+			type: SAVE_WORK
+		});
+		worksDb.push(work);
+	};
 }

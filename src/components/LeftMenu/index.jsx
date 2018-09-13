@@ -10,8 +10,9 @@ const LeftMenu = () => {
 				<nav id="fh5co-main-menu" role="navigation">
 					<ul>
 						<li><Link to="/">Home</Link></li>
-						<li><Link to="/work">Portfolio</Link></li>
+						<li><Link to="/works">Portfolio</Link></li>
 						<li><Link to="/creatework">Add Work</Link></li>
+						<li><Link to="/createcertificate">Add Certificate</Link></li>
 						<li><a href="about.html">About</a></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
