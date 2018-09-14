@@ -5,6 +5,7 @@ import LeftMenu from '../LeftMenu';
 
 import Home from '../../pages/Home';
 import Works from '../../pages/Works';
+import Certificates from '../../pages/Certificates';
 import SingleWork from '../../pages/SingleWork';
 import CreateWork from '../../pages/CreateWork';
 import CreateCertificate from '../../pages/CreateCertificate';
@@ -44,6 +45,16 @@ class AppRouter extends React.Component {
 							render={
 								props => (
 									<SingleWork 
+										{...props}
+									/>
+								)
+							}
+						/>
+						<Route
+							path="/certificates"
+							render={
+								props => (
+									<Certificates
 										{...props}
 									/>
 								)

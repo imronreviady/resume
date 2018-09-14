@@ -11,6 +11,7 @@ const LeftMenu = () => {
 					<ul>
 						<li><Link to="/">Home</Link></li>
 						<li><Link to="/works">Portfolio</Link></li>
+						<li><Link to="/certificates">Certificate</Link></li>
 						<li><Link to="/creatework">Add Work</Link></li>
 						<li><Link to="/createcertificate">Add Certificate</Link></li>
 						<li><a href="about.html">About</a></li>
