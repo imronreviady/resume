@@ -63,7 +63,7 @@ class AppRouter extends React.Component {
 						/>
 						<Route
 							exact 
-							path="/certificate/:key" 
+							path="/certificate/:slug" 
 							render={
 								props => (
 									<SingleCertificate 

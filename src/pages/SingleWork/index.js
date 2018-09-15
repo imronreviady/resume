@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import renderHtml from 'react-render-html';
+import { DiscussionEmbed, CommentCount } from 'disqus-react';
 
 import { getWork } from '../../store/actions/worksAction';
 
@@ -8,11 +10,18 @@ class SingleWork extends Component {
 
 	componentDidMount() {
 		console.log(this.props.match.params.slug);
+		console.log(process.env.PUBLIC_URL);
 		this.props.getWork(this.props.match.params.slug);
 	}
 
 	renderWork = () => {
 		return _.map(this.props.work, (work, key) => {
+			const disqusShortname = "imron-reviady";
+			const disqusConfig = {
+				url: `${process.env.PUBLIC_URL}${this.props.match.url}`,
+				identifier: this.props.match.params.slug,
+				title: work.title,
+			};
 			return (
 				<div className="fh5co-narrow-content" key={key}>
 					<div className="row">
@@ -24,7 +33,7 @@ class SingleWork extends Component {
 						<div className="col-md-8 col-md-offset-2 animate-box fadeInLeft animated">
 							<div className="col-md-9 col-md-push-3">
 								<h1>{work.title}</h1>
-								{work.description}
+								{renderHtml(work.description)}
 							</div>
 							<div className="col-md-3 col-md-pull-9 fh5co-services">
 								<h3>Category</h3>
@@ -36,15 +45,7 @@ class SingleWork extends Component {
 					</div>
 					<div className="row work-pagination animate-box fadeInLeft animated">
 						<div className="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
-							<div className="col-md-4 col-sm-4 col-xs-4 text-center">
-								<a href="#"><i className="icon-long-arrow-left" /> <span>Previous Project</span></a>
-							</div>
-							<div className="col-md-4 col-sm-4 col-xs-4 text-center">
-								<a href="#"><i className="icon-th-large" /></a>
-							</div>
-							<div className="col-md-4 col-sm-4 col-xs-4 text-center">
-								<a href="#"><span>Next Project</span> <i className="icon-long-arrow-right" /></a>
-							</div>
+							<DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
 						</div>
 					</div>
 				</div>

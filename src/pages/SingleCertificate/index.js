@@ -7,9 +7,8 @@ import { getCertificate } from '../../store/actions/certificatesAction';
 class SingleCertificate extends Component {
 
 	componentDidMount() {
-		const str = this.props.location.pathname;
-		console.log(str.substr(str.length - 20));
-		this.props.getCertificate(str.substr(str.length - 20));
+		console.log(this.props.match.params.slug);
+		this.props.getCertificate(this.props.match.params.slug);
 	}
 
 	renderCertificate = () => {

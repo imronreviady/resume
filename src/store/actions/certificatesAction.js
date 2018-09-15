@@ -18,12 +18,12 @@ export function getCertificates() {
 	}
 }
 
-export function getCertificate(key) {
+export function getCertificate(slug) {
 	return dispatch => {
 		dispatch({
 			type: GET_CERTIFICATE_LOADING
 		});
-		certificateDb.orderByKey().equalTo(key).on('value', snapshot => {
+		certificateDb.orderByChild("slug").equalTo(slug).on('value', snapshot => {
 			dispatch({
 				type: GET_CERTIFICATE,
 				payload: snapshot.val()

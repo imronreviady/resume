@@ -15,7 +15,7 @@ class Certificates extends Component {
 		return _.map(this.props.certificates, (certificate, key) => {
 			return (
 				<div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item" key={key}>
-					<Link to={`/certificate/${key}`}>
+					<Link to={`/certificate/${certificate.slug}`}>
 						<img src={certificate.image} alt={certificate.title} className="img-responsive" />
 						<h3 className="fh5co-work-title">{certificate.title}</h3>
 						<p>{certificate.provider}</p>
