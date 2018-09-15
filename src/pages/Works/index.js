@@ -15,7 +15,7 @@ class Works extends Component {
 		return _.map(this.props.works, (work, key) => {
 			return (
 				<div className="col-md-4 col-sm-6 col-xs-6 col-xxs-12 work-item" key={key}>
-					<Link to={`/work/${key}`}>
+					<Link to={`/work/${work.slug}`}>
 						<img src={work.image} alt={work.title} className="img-responsive" />
 						<h3 className="fh5co-work-title">{work.title}</h3>
 						<p>{work.category}</p>
@@ -38,7 +38,7 @@ class Works extends Component {
 						}
 						{
 							this.props.loading &&
-							<div>LOADING.....</div>
+							<div>Loading...</div>
 						}
 
 					</div>	

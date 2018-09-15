@@ -18,12 +18,12 @@ export function getWorks() {
 	}
 }
 
-export function getWork(key) {
+export function getWork(slug) {
 	return dispatch => {
 		dispatch({
 			type: GET_WORK_LOADING
 		});
-		worksDb.orderByKey().equalTo(key).on('value', snapshot => {
+		worksDb.orderByChild("slug").equalTo(slug).on('value', snapshot => {
 			dispatch({
 				type: GET_WORK,
 				payload: snapshot.val()

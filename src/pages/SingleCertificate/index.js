@@ -2,34 +2,35 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import { getWork } from '../../store/actions/worksAction';
+import { getCertificate } from '../../store/actions/certificatesAction';
 
-class SingleWork extends Component {
+class SingleCertificate extends Component {
 
 	componentDidMount() {
-		console.log(this.props.match.params.slug);
-		this.props.getWork(this.props.match.params.slug);
+		const str = this.props.location.pathname;
+		console.log(str.substr(str.length - 20));
+		this.props.getCertificate(str.substr(str.length - 20));
 	}
 
-	renderWork = () => {
-		return _.map(this.props.work, (work, key) => {
+	renderCertificate = () => {
+		return _.map(this.props.certificate, (certificate, key) => {
 			return (
 				<div className="fh5co-narrow-content" key={key}>
 					<div className="row">
 						<div className="col-md-12 animate-box fadeInLeft animated">
 							<figure className="text-center">
-								<img src={work.image} alt={work.title} className="img-responsive" />
+								<img src={certificate.image} alt={certificate.title} className="img-responsive" />
 							</figure>
 						</div>
 						<div className="col-md-8 col-md-offset-2 animate-box fadeInLeft animated">
 							<div className="col-md-9 col-md-push-3">
-								<h1>{work.title}</h1>
-								{work.description}
+								<h1>{certificate.title}</h1>
+								{certificate.description}
 							</div>
 							<div className="col-md-3 col-md-pull-9 fh5co-services">
-								<h3>Category</h3>
+								<h3>Provider</h3>
 								<ul>
-									<li>{work.category}</li>
+									<li>{certificate.provider}</li>
 								</ul>
 							</div>
 						</div>
@@ -57,7 +58,7 @@ class SingleWork extends Component {
 			<Fragment>
 			{
 				!this.props.loading &&
-				<div>{this.renderWork()}</div>
+				<div>{this.renderCertificate()}</div>
 			}
 			{
 				this.props.loading &&
@@ -74,9 +75,9 @@ class SingleWork extends Component {
 
 function mapStateToProps(state, ownProps) {
 	return {
-		work: state.work.data,
-		loading: state.work.loading
+		certificate: state.certificate.data,
+		loading: state.certificate.loading
 	}
 }
 
-export default connect(mapStateToProps, { getWork })(SingleWork);
+export default connect(mapStateToProps, { getCertificate })(SingleCertificate);

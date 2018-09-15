@@ -18,6 +18,23 @@ export function getCertificates() {
 	}
 }
 
+export function getCertificate(key) {
+	return dispatch => {
+		dispatch({
+			type: GET_CERTIFICATE_LOADING
+		});
+		certificateDb.orderByKey().equalTo(key).on('value', snapshot => {
+			dispatch({
+				type: GET_CERTIFICATE,
+				payload: snapshot.val()
+			});
+			dispatch({
+				type: GET_CERTIFICATE_LOADED
+			});
+		});
+	}
+}
+
 export function saveCertificate(certificate) {
 	return dispatch => {
 		dispatch({
