@@ -9,8 +9,6 @@ import { getWork } from '../../store/actions/worksAction';
 class SingleWork extends Component {
 
 	componentDidMount() {
-		console.log(this.props.match.params.slug);
-		console.log(process.env.PUBLIC_URL);
 		this.props.getWork(this.props.match.params.slug);
 	}
 

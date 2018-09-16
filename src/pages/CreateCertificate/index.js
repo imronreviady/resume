@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import draftToHtml from 'draftjs-to-html';
+import { EditorState, convertToRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 import { uploadToCloudinary } from '../../services';
 
 import { saveCertificate } from '../../store/actions/certificatesAction';
@@ -13,7 +18,7 @@ class CreateCertificate extends Component {
 			title: '',
 			provider: '',
 			image: null,
-			description: ''
+			description: EditorState.createEmpty()
 		};
 	}
 
@@ -21,6 +26,12 @@ class CreateCertificate extends Component {
 		this.setState({
 			[e.target.name]: e.target.type === 'file' ? e.target.files[0] : e.target.value,
 		})
+	}
+
+	handleEditorState = (editorState) => {
+		this.setState({
+			description: editorState,
+		});
 	}
 
 	slugify = (text) => {
@@ -40,15 +51,9 @@ class CreateCertificate extends Component {
 			slug: this.slugify(this.state.title),
 			image: image.secure_url,
 			provider: this.state.provider,
-			description: this.state.description
+			description: draftToHtml(convertToRaw(this.state.description.getCurrentContent()))
 		};
 		this.props.saveCertificate(certificate);
-		this.setState({
-			title: '',
-			image: null,
-			provider: '',
-			description: ''
-		})
 	}
 
 	render() {
@@ -101,15 +106,10 @@ class CreateCertificate extends Component {
 								</div>
 								<div className="col-md-12">
 									<div className="form-group">
-										<textarea
-											onChange={this.handleChange}
-											cols={30} 
-											rows={7}
-											className="form-control"
-											name="description"
-											placeholder="Description..."
-											required
-										/>
+										<Editor
+                							editorState={this.state.description}
+                							onEditorStateChange={this.handleEditorState}
+                						/>
 									</div>
 								</div>
 								<div className="col-md-12">
