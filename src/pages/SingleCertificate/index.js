@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import renderHtml from 'react-render-html';
-import { DiscussionEmbed, CommentCount } from 'disqus-react';
+
+import DisqusComment from '../../components/DisqusComment';
 
 import { getCertificate } from '../../store/actions/certificatesAction';
 
@@ -14,12 +15,6 @@ class SingleCertificate extends Component {
 
 	renderCertificate = () => {
 		return _.map(this.props.certificate, (certificate, key) => {
-			const disqusShortname = "imron-reviady";
-			const disqusConfig = {
-				url: `${process.env.PUBLIC_URL}${this.props.match.url}`,
-				identifier: this.props.match.params.slug,
-				title: certificate.title,
-			};
 			return (
 				<div className="fh5co-narrow-content" key={key}>
 					<div className="row">
@@ -43,7 +38,11 @@ class SingleCertificate extends Component {
 					</div>
 					<div className="row work-pagination animate-box fadeInLeft animated">
 						<div className="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
-							<DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+							<DisqusComment
+								url={window.location.href}
+								identifier={this.props.match.params.slug}
+								title={certificate.title}
+							/>
 						</div>
 					</div>
 				</div>

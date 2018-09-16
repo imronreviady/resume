@@ -12,5 +12,5 @@ var config = {
 firebase.initializeApp(config);
 
 export const worksDb = firebase.database().ref('/works');
-export const blogDb = firebase.database().ref('/blogs');
+export const blogsDb = firebase.database().ref('/blogs');
 export const certificateDb = firebase.database().ref('/certificates');
