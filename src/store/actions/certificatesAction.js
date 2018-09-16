@@ -23,7 +23,7 @@ export function getCertificate(slug) {
 		dispatch({
 			type: GET_CERTIFICATE_LOADING
 		});
-		certificateDb.orderByChild("slug").equalTo(slug).on('value', snapshot => {
+		certificateDb.orderByChild("slug").equalTo(slug).once('value', snapshot => {
 			dispatch({
 				type: GET_CERTIFICATE,
 				payload: snapshot.val()

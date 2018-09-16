@@ -23,7 +23,7 @@ export function getWork(slug) {
 		dispatch({
 			type: GET_WORK_LOADING
 		});
-		worksDb.orderByChild("slug").equalTo(slug).on('value', snapshot => {
+		worksDb.orderByChild("slug").equalTo(slug).once('value', snapshot => {
 			dispatch({
 				type: GET_WORK,
 				payload: snapshot.val()
