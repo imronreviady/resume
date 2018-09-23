@@ -9,6 +9,7 @@ class Works extends Component {
 
 	componentDidMount() {
 		this.props.getWorks();
+		document.title = "Imron Reviady - Portfolio";
 	}
 
 	renderWorks = () => {

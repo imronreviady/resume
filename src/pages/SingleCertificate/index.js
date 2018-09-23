@@ -15,6 +15,7 @@ class SingleCertificate extends Component {
 
 	renderCertificate = () => {
 		return _.map(this.props.certificate, (certificate, key) => {
+			document.title = certificate.title;
 			return (
 				<div className="fh5co-narrow-content" key={key}>
 					<div className="row">

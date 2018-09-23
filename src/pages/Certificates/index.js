@@ -9,6 +9,7 @@ class Certificates extends Component {
 
 	componentDidMount() {
 		this.props.getCertificates();
+		document.title = "Imron Reviady - Certificates";
 	}
 
 	renderCertificates = () => {

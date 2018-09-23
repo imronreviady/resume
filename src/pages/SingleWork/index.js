@@ -15,6 +15,7 @@ class SingleWork extends Component {
 
 	renderWork = () => {
 		return _.map(this.props.work, (work, key) => {
+			document.title = work.title;
 			return (
 				<div className="fh5co-narrow-content" key={key}>
 					<div className="row">
