@@ -11,7 +11,7 @@
     "firebase": "^5.4.2",
     "gh-pages": "^1.2.0",
     "history": "^4.7.2",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.13",
     "noty": "^3.2.0-beta",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
